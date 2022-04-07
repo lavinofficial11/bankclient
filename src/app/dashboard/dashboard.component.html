@@ -1,0 +1,120 @@
+
+<h3 style="color: white;">Welcome {{user}}
+    <button (click)="logout()" class="btn btn-warning" style="color: black; float: right;"><h6>logout</h6></button>
+
+</h3>
+<p style="color: white;">Login details-: {{  lDate  |  date : 'short'}}</p>
+
+
+
+<a routerLink="/transaction">Transaction history</a> <br><br>
+<button (click)="deleteAccount()" class="btn btn-danger" style= "color: black; float: right;">Delete account</button>
+
+
+<app-deleteconfirm (onDelete)="delete($event)" (onCancel)="cancel()" [item]="dacno"></app-deleteconfirm>
+ 
+<hr>
+
+<app-animation-demo></app-animation-demo>
+<!-- deposit form -->
+
+
+
+
+<div [ngClass]="dacno? 'style1': ''" class="container col-md-12 mt-0">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-header">
+                <h3 appHighlight class="text-center">Deposit Form</h3>
+              
+            
+            </div>
+            <div class="card-body">
+                <form  [formGroup]="depositForm" (ngSubmit)="deposit()">
+
+                  
+
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" name="acno" formControlName="acno" placeholder="account number" id="acno" required>
+                        
+                    </div>
+                    <div style="color: red;" *ngIf="(this.depositForm.get('acno')?.touched||this.depositForm.get('acno')?.dirty) &&this.depositForm.get('acno')?.errors">Invalid accno</div>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <input type="password" class="form-control" name="pass" formControlName="pass" placeholder="password" id="pass" required>
+                    </div>
+                    <div style="color: red;" *ngIf="(this.depositForm.get('pass')?.touched||this.depositForm.get('pass')?.dirty) &&this.depositForm.get('pass')?.errors">Invalid password</div>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" name="amount" formControlName="amount" placeholder="Amount" id="amount" required>
+                        
+                    </div>
+                    <div style="color: red;" *ngIf="(this.depositForm.get('amount')?.touched||this.depositForm.get('amount')?.dirty) &&this.depositForm.get('amount')?.errors">Invalid amount</div>
+                    
+                    <div class="form-group">
+                        <input type="submit"  value="DePoSiT" class="btn float-right login_btn " style="width:50%" >
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+<!-- withdraw form -->
+
+<div [ngClass]="dacno? 'style1': ''" class="container col-md-12 mt-3">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-header">
+                <h3 appHighlight class="text-center">Withdraw Form</h3>
+              
+            
+            </div>
+            <div class="card-body">
+                <form [formGroup]="withdrawForm" (ngSubmit)="withdraw()" >
+
+                  
+
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" name="acno" formControlName="acno1" placeholder="account number" id="acno" required>
+                        
+                    </div>
+                    <div style="color: red;" *ngIf="(this.withdrawForm.get('acno1')?.touched||this.withdrawForm.get('acno1')?.dirty) &&this.withdrawForm.get('acno1')?.errors">Invalid accno</div>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <input type="password" class="form-control" name="pass" formControlName="pass1" placeholder="password" id="pass" required>
+                    </div>
+                    <div style="color: red;" *ngIf="(this.withdrawForm.get('pass1')?.touched||this.withdrawForm.get('pass1')?.dirty) &&this.withdrawForm.get('pass1')?.errors">Invalid password</div>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" name="withdraw amount" formControlName="withdrawamount" placeholder="withdraw amount" id="amount" required>
+                        
+                    </div>
+                    <div style="color: red;" *ngIf="(this.withdrawForm.get('withdrawamount')?.touched||this.withdrawForm.get('withdrawamount')?.dirty) &&this.withdrawForm.get('withdrawamount')?.errors">Invalid amount</div>
+                    
+                    <div class="form-group">
+                        <input type="submit"  value="WiThDrAw" class="btn float-right login_btn " style="width:50%" >
+                    </div>
+                </form>
+            </div>
+            <!-- <p style="color:white;align-items:baseline;">Not a user? <a routerLink="">Log In</a></p> -->
+        </div>
+    </div>
+</div>
+

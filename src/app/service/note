@@ -1,0 +1,121 @@
+
+
+                                Angular - Basic Commands
+                            ---------------------------------
+            
+                   1. to create project - ng new project-name / ng new project-name --routing
+
+                   2. to project  run a project - ng serve 
+
+                   3. to create a component - ng g c component-name
+
+                   4. to create a Service - ng g s service-name
+
+                   5. to create a Directive - ng g d directive-name
+
+                   6. to build Angular app - ng build --prod
+
+
+
+
+                                Angular Building Blocks
+                       ---------------------------------------         
+
+                1. Module - To import libraries / root module - AppModule
+
+                2. Component - { html,css,ts } - root component - AppComponent
+
+                3. Data Binding - sharing data within a component
+
+                    3.1 One way Binding - data flow in one direction
+
+                            3.1.1 Component to view
+
+                                3.1.1.1 String interpolation -syntax: {{expression}}
+
+                                3.1.1.2 Property Binding - syntax: [target-property]="source-property"
+
+                            3.1.2 View to component
+
+                                3.1.2.1 Event Binding- syntax: (event-name)="function call"
+
+                                3.1.2.2 Event Binding using $event as argument
+                                    - syntax: (event-name)="function call($event)"
+
+                                3.1.2.3 Template referencing variable- syntax: #variable-name
+
+                    3.2 Two way Binding- data flow in two direction -import FormsModule in AppModule
+                                syntax: [(ngModel)]="variable-name" set name property of the tag if we
+                                used ngModel inside a form tag.
+
+                4. App routing Module - to set path for an html page
+
+                5. Dependency Injection - to communicate data between class / component
+
+                6. Angular Services - To keep redundant code
+
+                7. ngSubmit - to submit an entire form 
+
+                8. Angular Directives - To manipulate DOM
+
+                    8.1 Component Directives 
+
+                    8.2 Structural Directives - syntax - *keyword="condition"
+
+                        8.2.1 ngIf- syntax: *ngIf="condition"
+
+                        8.2.2 ngSwitch
+
+                        8.2.3 ngFor
+
+                    8.3 Attribute Directives - to apply set of style to html
+
+                        8.3.1 In built Directives- ngClass 
+
+                        8.3.2 Userdefined Directives
+
+                9. Angular Forms
+
+                    9.1 Template driven Angular Forms - Fisrt design the html page
+
+                    9.2 Model driven Angular Forms - Fisrt design the model in ts file
+
+                        9.2.1 Reactive Forms - Add Validation to the Forms- ReactiveFormsModule
+                            {Form Group- Form Builder class, Form Array, Form Control Name }
+
+                10.local Storage - to store data permanently in a browser
+
+                    10.1 setItem - to store 
+
+                    10.2 getItem - to get
+
+                    10.3 removeItem - to delete
+
+                11. Pipe - to transform data to another format
+                    syntax - {value_expression | pipe operator [: pipe Argument]}
+
+                12. Parent - child Communication
+
+                    12.1 Parent to child - Input decorator
+
+                    12.2 child to Parent - Output decorator
+
+                13. EventEmitter - to create userdefined event , to occur the event - emit() 
+
+                14. Animation 
+
+                15. Client - Server Integration
+
+                    15.1 Import HttpClientModule in AppModule.ts
+
+                    15.2 Inject HttpClient to use http request
+
+                    15.3 using Http request create API call
+
+                16. Solve Asynchronous events - RxJS libraries
+
+                    16.1 Observable - to solve Asynchronous event
+
+                        16.1.1 subscribe - resolved state
+
+                        16.1.2 catch - reject state
